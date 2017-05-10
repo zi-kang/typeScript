@@ -1,7 +1,8 @@
 class Student {
     fllName: string;
-    constructor( public firstName, public middleInitial, public lastName){
-        this.fllName = firstName+" "+middleInitial+" "+lastName;
+
+    constructor(public firstName, public middleInitial, public lastName) {
+        this.fllName = firstName + " " + middleInitial + " " + lastName;
     }
 }
 
