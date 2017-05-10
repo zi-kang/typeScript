@@ -22,3 +22,24 @@ mysearch = function(src: string, sub: string): boolean {
         return true;
     }
 }
+
+interface StringArray {
+    [index: number]: string;
+}
+
+let myArray: StringArray;
+myArray = ["tom","kunt"];
+let myStr: string = myArray[0];
+console.log( myStr );
+
+class Animal {
+    name: string;
+}
+class dog extends Animal {
+    breed: number;
+}
+
+interface NotOkay {
+    [x: number]: dog;
+    [x: string]: Animal;
+}
