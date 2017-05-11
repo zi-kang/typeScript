@@ -53,3 +53,48 @@ squr.color = "red";
 squr.sideLength = 10;
 squr.penWidth= 15;
 console.log( squr );
+//混合类型实例
+interface Counter {
+    (start: number): string;
+    interval: number;
+    reset(): void;
+}
+function getCounter(): Counter {
+    let counter = <Counter>function (start: number){ };
+    counter.interval = 321;
+    counter.reset = function(){
+        console.log("I'm counter's reset function!");
+    }
+    return counter;
+}
+let c = getCounter();
+c(10);
+c.reset();
+c.interval = 5.0;
+console.log(c);
+console.log(c);
+
+//类继承
+class Control {
+    private state: any;
+}
+
+interface SelectableControl extends Control {
+    select(): void;
+}
+
+class Buttons extends Control {
+    select() { }
+}
+
+class TextBoxs extends Control {
+    select() { }
+}
+
+class Images {
+    select() { }
+}
+
+class Locations {
+    select() { }
+}
