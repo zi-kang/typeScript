@@ -87,3 +87,23 @@ let dad = new Octopus("Man with the 8 strong legs");
 /*let dad = new Octopus();
 dad.name = "Man with the 3-piece suit";*///error
 console.log(dad);
+//抽象类
+abstract class Animall {
+    abstract makeSound(): void;
+    move(): void {
+        console.log('正在初始化数据……………………');
+    }
+}
+//构造函数
+class Greeter2 {
+    greeing: string;
+    constructor(message: string) {
+        this.greeing = message;
+    }
+    greet() {
+        return "hello, " + this.greeing;
+    }
+}
+// let greeter2: Greeter2;  right
+let greeter2 = new Greeter2("kunt");
+console.log(greeter2.greet());

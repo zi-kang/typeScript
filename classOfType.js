@@ -113,3 +113,25 @@ var dad = new Octopus("Man with the 8 strong legs");
 /*let dad = new Octopus();
 dad.name = "Man with the 3-piece suit";*/ //error
 console.log(dad);
+//抽象类
+var Animall = (function () {
+    function Animall() {
+    }
+    Animall.prototype.move = function () {
+        console.log('正在初始化数据……………………');
+    };
+    return Animall;
+}());
+//构造函数
+var Greeter2 = (function () {
+    function Greeter2(message) {
+        this.greeing = message;
+    }
+    Greeter2.prototype.greet = function () {
+        return "hello, " + this.greeing;
+    };
+    return Greeter2;
+}());
+// let greeter2: Greeter2;  right
+var greeter2 = new Greeter2("kunt");
+console.log(greeter2.greet());
