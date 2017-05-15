@@ -17,14 +17,28 @@ function buildName(firstName) {
 var employeeName = buildName("Joseph", "Samuel", "Lucas", "MacKinzie");
 console.log(employeeName);
 //this && 箭头函数
+/*let deck = {
+    suits: ["hearts","spades","clubs","damonds"],
+    cards: Array(52),
+    createCardPicker: function(){
+        return function(){
+            let pickedCard = Math.floor( Math.random()*52 );
+            let pickedSuit = Math.floor( pickedCard / 13 );
+            return {suit: this.suits[pickedSuit], card: pickedCard % 13};
+        }
+    }
+}*/
+//上述代码错误，是因为this此时指向的是window而非deck本身
 var deck = {
-    suits: ["hearts", "spades", "clubs", "damonds"],
+    suits: ["hearts", "spades", "clubs", "diamonds"],
     cards: Array(52),
     createCardPicker: function () {
+        var _this = this;
+        // NOTE: the line below is now an arrow function, allowing us to capture 'this' right here
         return function () {
             var pickedCard = Math.floor(Math.random() * 52);
             var pickedSuit = Math.floor(pickedCard / 13);
-            return { suit: this.suits[pickedSuit], card: pickedCard % 13 };
+            return { suit: _this.suits[pickedSuit], card: pickedCard % 13 };
         };
     }
 };
