@@ -1,10 +1,8 @@
 function greeter(person) {
     return "heloo, " + person;
-
 }
 var user = "huzikang user";
 document.body.innerHTML = greeter(user);
-<<<<<<< HEAD
 function gre(people) {
     return "hello ," + people;
 }
@@ -15,14 +13,3 @@ function greeter1(person) {
 }
 var user1 = { firstName: "Jane", lastName: "User" };
 console.log(greeter1(user1));
-=======
-
-
-
-
-
-
-
-
-
->>>>>>> origin/Hdev
