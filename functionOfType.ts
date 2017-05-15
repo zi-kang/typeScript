@@ -70,7 +70,21 @@ let deck1: Deck = {
     }
 }
 
-let cardPicker1 = deck.createCardPicker();
+let cardPicker1 = deck1.createCardPicker();
 let pickedCard1 = cardPicker1();
 
 alert("card: " + pickedCard1.card + " of " + pickedCard1.suit);
+
+//this参数在回掉函数里面
+interface UIElement {
+    addClickListener( oncick: (this: void, e: Event) => void ): void;
+}
+class Handler {
+    info: string;
+    onClickBad(this: Handler, e: Event){
+        // this.info = e.message; error
+        console.log('clicked!');
+    }
+}
+let h = new Handler();
+//uiElement.addClickListener(h.onClickBad);//error

@@ -57,6 +57,17 @@ var deck1 = {
         };
     }
 };
-var cardPicker1 = deck.createCardPicker();
+var cardPicker1 = deck1.createCardPicker();
 var pickedCard1 = cardPicker1();
 alert("card: " + pickedCard1.card + " of " + pickedCard1.suit);
+var Handler = (function () {
+    function Handler() {
+    }
+    Handler.prototype.onClickBad = function (e) {
+        // this.info = e.message; error
+        console.log('clicked!');
+    };
+    return Handler;
+}());
+var h = new Handler();
+//uiElement.addClickListener(h.onClickBad);//error
