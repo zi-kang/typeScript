@@ -79,12 +79,34 @@ alert("card: " + pickedCard1.card + " of " + pickedCard1.suit);
 interface UIElement {
     addClickListener( oncick: (this: void, e: Event) => void ): void;
 }
-class Handler {
+//error
+// class Handler {
+//     info: string;
+//     onClickBad(this: Handler, e: Event){
+//         // this.info = e.message; error
+//         console.log('clicked!');
+//     }
+// }
+// let h = new Handler();
+//uiElement.addClickListener(h.onClickBad);
+// error
+/*class Handler {
     info: string;
-    onClickBad(this: Handler, e: Event){
-        // this.info = e.message; error
+    onClickGood(this: void, e: Event) {
+        // can't use this here because it's of type void!
         console.log('clicked!');
     }
-}
+}*/
+class Handler {
+ info: string;
+ onClickGood(this: void, e: Event) {
+ // can't use this here because it's of type void!
+ console.log('clicked!');
+ }
+ }
+/*class Handler {
+    info: string;
+    onClickGood = (e: Event) => { this.info = e.message }
+}*/
 let h = new Handler();
-//uiElement.addClickListener(h.onClickBad);//error
+// UIElement.addClickListener(h.onClickGood);//error

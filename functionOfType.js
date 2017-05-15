@@ -60,14 +60,35 @@ var deck1 = {
 var cardPicker1 = deck1.createCardPicker();
 var pickedCard1 = cardPicker1();
 alert("card: " + pickedCard1.card + " of " + pickedCard1.suit);
-var Handler = (function () {
+//error
+// class Handler {
+//     info: string;
+//     onClickBad(this: Handler, e: Event){
+//         // this.info = e.message; error
+//         console.log('clicked!');
+//     }
+// }
+// let h = new Handler();
+//uiElement.addClickListener(h.onClickBad);
+// error
+/*class Handler {
+    info: string;
+    onClickGood(this: void, e: Event) {
+        // can't use this here because it's of type void!
+        console.log('clicked!');
+    }
+}*/ var Handler = (function () {
     function Handler() {
     }
-    Handler.prototype.onClickBad = function (e) {
-        // this.info = e.message; error
+    Handler.prototype.onClickGood = function (e) {
+        // can't use this here because it's of type void!
         console.log('clicked!');
     };
     return Handler;
 }());
+/*class Handler {
+    info: string;
+    onClickGood = (e: Event) => { this.info = e.message }
+}*/
 var h = new Handler();
-//uiElement.addClickListener(h.onClickBad);//error
+// UIElement.addClickListener(h.onClickGood);//error
