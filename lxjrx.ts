@@ -61,3 +61,26 @@ listenEvent(EventType.Mouse, <(e: Event) => void>((e: MouseEvent) => console.log
 
 // Still disallowed (clear error). Type safety enforced for wholly incompatible types
 listenEvent(EventType.Mouse, (e: Event) => console.log(e));
+
+//可选参数与剩余参数
+function invokeLater(args: any[], callback: (...args: any[]) => void) {
+    /* ... Invoke callback with 'args' ... */
+    console.log( args );
+}
+
+// Unsound - invokeLater "might" provide any number of arguments
+invokeLater([1, 2], (x, y) => console.log(x + ', ' + y));
+
+// Confusing (x and y are actually required) and undiscoverable
+invokeLater([1, 2], (x?, y?) => console.log(x + ', ' + y));
+
+//枚举
+enum Status { Ready, Waiting };
+enum Color { Red, Blue, Green };
+
+let status1 = Status.Ready;
+console.log( status1 );
+//status1 = Color.Green;  //error
+//不同枚举之间不能兼容
+
+
