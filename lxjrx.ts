@@ -83,4 +83,62 @@ console.log( status1 );
 //status1 = Color.Green;  //error
 //不同枚举之间不能兼容
 
+//类
+class Animal {
+    feet: number;
+    constructor(name: string, numFeet: number) { }
+}
+
+class Size {
+    feet: number;
+    constructor(numFeet: number) { }
+}
+
+let a: Animal;
+let s: Size;
+
+a = s;  //OK
+s = a;  //OK
+console.log( a + ' ' +s );//undefined undefined
+//由此说明类是可以相互之间兼容的
+
+//泛型
+interface Empty<T> {
+}
+let x1: Empty<number>;
+let y1: Empty<string>;
+x1 = y1;  // okay, y matches structure of x
+
+interface NotEmpty<T> {
+    data: T;
+}
+let x2: NotEmpty<number>;
+let y2: NotEmpty<string>;
+//x2 = y2;  // Type 'string' is not assignable to type 'number'.
+
+
+//A function whose declared type is neither 'void' nor 'any' must return a value.
+let identity5 = function<T>(x: T): T {
+    // ...
+    return x
+}
+
+let reverse5 = function<U>(y: U): U {
+    // ...
+    return y
+}
+
+identity5 = reverse5;  // Okay because (x: any)=>any matches (y: any)=>any
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -70,3 +70,35 @@ var status1 = Status.Ready;
 console.log(status1);
 //status1 = Color.Green;  //error
 //不同枚举之间不能兼容
+//类
+var Animal = (function () {
+    function Animal(name, numFeet) {
+    }
+    return Animal;
+}());
+var Size = (function () {
+    function Size(numFeet) {
+    }
+    return Size;
+}());
+var a;
+var s;
+a = s; //OK
+s = a; //OK
+console.log(a + ' ' + s); //undefined undefined
+var x1;
+var y1;
+x1 = y1; // okay, y matches structure of x
+var x2;
+var y2;
+//x2 = y2;  // Type 'string' is not assignable to type 'number'.
+//A function whose declared type is neither 'void' nor 'any' must return a value.
+var identity5 = function (x) {
+    // ...
+    return x;
+};
+var reverse5 = function (y) {
+    // ...
+    return y;
+};
+identity5 = reverse5; // Okay because (x: any)=>any matches (y: any)=>any
