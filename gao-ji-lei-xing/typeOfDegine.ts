@@ -73,5 +73,48 @@ function getName(n: NameOrResolver): Name {
     }
 }
 
+//类型别名也可以是泛型
+type Container<T> = { value: T };
+
+type Tree<T> = {
+    value: T;
+    left: Tree<T>;
+    right: Tree<T>;
+}
+
+//与交叉类型一起使用，我们可以创建出一些十分稀奇古怪的类型
+type LinkedList<T> = T & { next: LinkedList<T> };
+
+interface Person {
+    name: string;
+}
+
+var people: LinkedList<Person> = {a:"kunt", b:"kang"};
+people.name = "kunt";
+console.log( people );
+var s = people.name;
+console.log( s );
+
+//以下全部undefined
+/*
+var s = people.next.name;
+console.log( s );
+var s = people.next.next.name;
+console.log( s );
+var s = people.next.next.next.name;
+*/
+// console.log( s );
+
+//接口 vs. 类型别名
+
+type Alias = { num: number }
+interface Interface {
+    num: number;
+}
+declare function aliased(arg: Alias): Alias;
+declare function interfaced(arg: Interface): Interface;
+// console.log( aliased );//is not defined(…)
+// console.log( interfaced );//is not defined(…)
+
 
 

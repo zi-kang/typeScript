@@ -62,3 +62,10 @@ function getName(n) {
         return n();
     }
 }
+var people = { a: "kunt", b: "kang" };
+people.name = "kunt";
+console.log(people);
+var s = people.name;
+console.log(s);
+// console.log( aliased );//is not defined(…)
+// console.log( interfaced );//is not defined(…)
