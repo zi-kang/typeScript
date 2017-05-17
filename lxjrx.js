@@ -102,3 +102,6 @@ var reverse5 = function (y) {
     return y;
 };
 identity5 = reverse5; // Okay because (x: any)=>any matches (y: any)=>any
+/*目前为止，我们使用了兼容性，它在语言规范里没有定义。 在TypeScript里，有两种类型的兼容性：子类型与赋值。 它们的不同点在于，赋值扩展了子类型兼容，允许给 any赋值或从any取值和允许数字赋值给枚举类型或枚举类型赋值给数字。
+
+语言里的不同地方分别使用了它们之中的机制。 实际上，类型兼容性是由赋值兼容性来控制的甚至在 implements和extends语句里。*/
